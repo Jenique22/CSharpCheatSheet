@@ -1,0 +1,126 @@
+//Console Hello world
+
+Console.WriteLine("Hello world") //Notice Camel case is used
+
+//Varible
+string aFriend = "Jenique";
+Console.WriteLine("aFriend");
+//Results would be Jenique
+
+//Append a string to a Var
+
+Console.WriteLine("Hello" + aFriend);
+
+//A better way to write this and a must use
+Console.WriteLine($"Hello {aFriend}");
+// $- Signifies string interpolation is being used
+////////////////////////////////////////////////////////////
+//////////////////The basics of strings/////////////////////
+///////////////////////////////////////////////////////////
+string firstName = "Jenna";
+string lastName = "Knoesen";
+
+Console.WriteLine($"My name is {firstName} and my surname is {lastName}");
+
+//length property
+Console.WriteLine($"My name {firstName} has {firstName.Length} letters."); //Results would be My name Jenna has letters.
+//Methods---------------------------------------
+//1.Trim
+string greeting = "      Hello World!       ";
+Console.WriteLine($"[{greeting}]");
+
+string trimmedGreeting = greeting.TrimStart();
+Console.WriteLine($"[{trimmedGreeting}]");
+
+trimmedGreeting = greeting.TrimEnd();
+Console.WriteLine($"[{trimmedGreeting}]");
+
+trimmedGreeting = greeting.Trim();
+Console.WriteLine($"[{trimmedGreeting}]");
+
+//TrimStart() this () makes it a method
+//2. Replace
+string sayHello = "Hello World!";
+Console.WriteLine(sayHello);
+sayHello = sayHello.Replace("Hello", "Greetings");
+Console.WriteLine(sayHello);
+
+//3.Upper case or lower case
+Console.WriteLine(sayHello.ToUpper());
+Console.WriteLine(sayHello.ToLower());
+
+//4.Search strings (to find text in a string) use Contains method
+string songLyrics = "You say goodbye, and I say hello";
+Console.WriteLine(songLyrics.Contains("goodbye"));
+Console.WriteLine(songLyrics.Contains("greetings"));
+//The Contains method returns a boolean value which tells you if the string you were searching for was found.
+
+////////////////////////////////////////////////////////////
+/////////////Numbers and Interger Math/////////////////////
+///////////////////////////////////////////////////////////
+
+//Intereger Math
+int a = 18;
+int b = 6;
+int c = a + b;
+Console.WriteLine(c);// output would be 24
+//The C# language defines the precedence of different mathematics operations with rules consistent with the rules you learned in mathematics. 
+//Multiplication and division take precedence over addition and subtraction.
+//int has to be a whole number
+
+//integer precision and limits
+//integer division truncates the result. You can get the remainder by using the remainder operator, the % character:
+//truncates - means taken away
+int a = 7;
+int b = 4;
+int c = 3;
+int d = (a + b) / c;
+int e = (a + b) % c;
+Console.WriteLine($"quotient: {d}");
+Console.WriteLine($"remainder: {e}"); // result should be 3 and 2
+
+//In C# there is a limit to an int where other langages does not have a limit 
+int max = int.MaxValue;
+int min = int.MinValue;
+Console.WriteLine($"The range of integers is {min} to {max}");
+//Notice that the answer is very close to the minimum (negative) integer. It's the same as min + 2. The addition operation overflowed the allowed values for integers
+int what = max + 3;
+Console.WriteLine($"An example of overflow: {what}");
+
+//Double type
+//The double numeric type represents a double-precision floating point number.
+//A floating point number is useful to represent non-integral numbers that may be very large or small in magnitude. 
+//Double-precision is a relative term that describes the numbers of binary digits used to store the value. 
+//Single precision numbers are declared using the float keyword
+double a = 5;
+double b = 4;
+double c = 2;
+double d = (a + b) / c;
+Console.WriteLine(d); //Result should be 4.5
+
+//The range of a double value is much greater than integer values.
+double max = double.MaxValue;
+double min = double.MinValue;
+Console.WriteLine($"The range of double is {min} to {max}"); //Resualt should be The range of double is -1.79769313486232E+308 to 1.79769313486232E+308
+//The number to the left of the E is the significand. The number to the right is the exponent, as a power of 10.
+
+double third = 1.0 / 3.0;
+Console.WriteLine(third);
+//You know that 0.3 is 3/10 and not exactly the same as 1/3. Similarly, 0.33 is 33/100. That's closer to 1/3, but still not exact.
+
+//Decimal 
+//decimal type has a smaller range but greater precision than double
+decimal min = decimal.MinValue;
+decimal max = decimal.MaxValue;
+Console.WriteLine($"The range of the decimal type is {min} to {max}");
+//Result The range of the decimal type is -79228162514264337593543950335 to 79228162514264337593543950335
+
+//The M suffix on the numbers is how you indicate that a constant should use the decimal type. Otherwise, the compiler assumes the double type.
+//The letter M was chosen as the most visually distinct letter between the double and decimal keywords.
+double a = 1.0;
+double b = 3.0;
+Console.WriteLine(a / b);
+
+decimal c = 1.0M;
+decimal d = 3.0M;
+Console.WriteLine(c / d); //Result 0.333333333333333 0.3333333333333333333333333333
